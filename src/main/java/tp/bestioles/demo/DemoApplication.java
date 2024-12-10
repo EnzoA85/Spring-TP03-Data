@@ -31,13 +31,12 @@ public class DemoApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 
 		person person = new person(20, "Enzo", "Archambaud");
-		personRepository.save(person);
-
 		species species = new species("Ours","Ursidae");
 
 		animal animal = new animal("Jaune","Winnie","M",species);
-		person.animalsPerson.add(animal);
 		animalRepository.save(animal);
+		person.getAnimalsPerson().add(animal);
+		personRepository.save(person);
 
 		System.out.println(personRepository.findAll());
 	}

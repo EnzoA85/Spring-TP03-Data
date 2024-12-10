@@ -81,4 +81,12 @@ public class person {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
+    public Set<animal> getAnimalsPerson() {
+        return animalsPerson;
+    }
+
+    public void setAnimalsPerson(Set<animal> animalsPerson) {
+        this.animalsPerson = animalsPerson;
+    }
 }
