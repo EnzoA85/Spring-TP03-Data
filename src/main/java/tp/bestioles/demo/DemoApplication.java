@@ -30,6 +30,7 @@ public class DemoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
+		//TP 3
 		person person = new person(20, "Enzo", "Archambaud");
 		personRepository.save(person);
 
@@ -40,5 +41,12 @@ public class DemoApplication implements CommandLineRunner{
 		animalRepository.save(animal);
 
 		System.out.println(personRepository.findAll());
+
+		System.out.println(animalRepository.findById(1));
+
+		person person2 = new person(99, "Personne", "Asupprimer");
+		personRepository.save(person2);
+		personRepository.delete(person2);
+
 	}
 }
