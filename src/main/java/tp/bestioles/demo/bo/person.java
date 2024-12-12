@@ -25,9 +25,9 @@ public class person {
     @Column(name = "age", nullable = false)
     private Integer age;
     @Column(name = "firstname", length = 50, nullable = false)
-    private String firstname;
+    private String firstName;
     @Column(name = "lastname", length = 50, nullable = false)
-    private String lastname;
+    private String lastName;
 
     @ManyToMany
     @JoinTable(
@@ -44,10 +44,10 @@ public class person {
     public person() {
     }
 
-    public person(Integer age, String firstname, String lastname) {
+    public person(Integer age, String firstName, String lastName) {
         this.age = age;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Integer getId() {
@@ -66,24 +66,24 @@ public class person {
         this.age = age;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastnNme(String lastName) {
+        this.lastName = lastName;
     }
 
     @Override
     public String toString() {
-        return "person [id=" + id + ", age=" + age + ", firstname=" + firstname + ", lastname=" + lastname + "]";
+        return "person [id=" + id + ", age=" + age + ", firstname=" + firstName + ", lastname=" + lastName + "]";
     }
 }

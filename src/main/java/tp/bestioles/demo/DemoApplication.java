@@ -1,5 +1,8 @@
 package tp.bestioles.demo;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -34,21 +37,34 @@ public class DemoApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 
 		//TP 3
-		person person = new person(20, "Enzo", "Archambaud");
-		personRepository.save(person);
+		// person person = new person(20, "Enzo", "Archambaud");
+		// personRepository.save(person);
 
-		species species = new species("Ours","Ursidae");
+		// species species = new species("Ours","Ursidae");
 
-		animal animal = new animal("Jaune","Winnie","M",species);
-		person.animalsPerson.add(animal);
-		animalRepository.save(animal);
+		// animal animal = new animal("Jaune","Winnie","M",species);
+		// person.animalsPerson.add(animal);
+		// animalRepository.save(animal);
 
-		System.out.println(personRepository.findAll());
+		// System.out.println(personRepository.findAll());
 
-		System.out.println(animalRepository.findById(1));
+		// System.out.println(animalRepository.findById(1));
 
-		person person2 = new person(99, "Personne", "Asupprimer");
-		personRepository.save(person2);
-		personRepository.delete(person2);
+		// person person2 = new person(99, "Personne", "Asupprimer");
+		// personRepository.save(person2);
+		// personRepository.delete(person2);
+
+		//TP 4
+
+		System.out.println(speciesRepository.findFirstByCommonName("Chat"));
+		System.out.println(speciesRepository.findByLatinNameContainingIgnoreCase("Canis"));
+
+		System.out.println(personRepository.findByLastNameOrFirstName("Lamarque", "Jean"));
+		System.out.println(personRepository.findByLastNameOrFirstName("Loizeau", "Jean"));
+		System.out.println(personRepository.findByAgeGreaterThanEqual(54));
+
+		System.out.println(animalRepository.findBySpecies(speciesRepository.findById(1).get()));
+		List<String> colorsToSearch = Arrays.asList("Blanc", "Jaune", "Noir","Roux");
+		System.out.println(animalRepository.findByColorIn(colorsToSearch));
 	}
 }
