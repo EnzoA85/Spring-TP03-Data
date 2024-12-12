@@ -88,4 +88,9 @@ public class animal {
     public void setSpecies(species species) {
         this.species = species;
     }
+
+    @Override
+    public String toString() {
+        return "animal [id=" + id + ", color=" + color + ", name=" + name + ", sex=" + sex + "]";
+    }   
 }

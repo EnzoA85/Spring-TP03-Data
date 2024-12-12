@@ -81,4 +81,9 @@ public class person {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
+    @Override
+    public String toString() {
+        return "person [id=" + id + ", age=" + age + ", firstname=" + firstname + ", lastname=" + lastname + "]";
+    }
 }

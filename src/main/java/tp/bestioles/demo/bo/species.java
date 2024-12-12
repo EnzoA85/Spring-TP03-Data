@@ -19,9 +19,9 @@ public class species {
     @Column(name = "ID")
     private Integer id;
     @Column(name = "common_name", length = 50, nullable = false)
-    private String common_name;
+    private String commonName;
     @Column(name = "latin_name", length = 200, nullable = false)
-    private String latin_name;
+    private String latinName;
 
     @OneToMany(mappedBy = "species")
     private Set<animal>animal;
@@ -29,9 +29,9 @@ public class species {
     public species() {
     }
 
-    public species(String common_name, String latin_name) {
-        this.common_name = common_name;
-        this.latin_name = latin_name;
+    public species(String commonName, String latinName) {
+        this.commonName = commonName;
+        this.latinName = latinName;
     }
 
     public Integer getId() {
@@ -42,19 +42,26 @@ public class species {
         this.id = id;
     }
 
-    public String getCommon_name() {
-        return common_name;
+    public String getCommonName() {
+        return commonName;
     }
 
-    public void setCommon_name(String common_name) {
-        this.common_name = common_name;
+    public void setCommonName(String commonName) {
+        this.commonName = commonName;
     }
 
-    public String getLatin_name() {
-        return latin_name;
+    public String getLatinName() {
+        return latinName;
     }
 
-    public void setLatin_name(String latin_name) {
-        this.latin_name = latin_name;
+    public void setLatinName(String latinName) {
+        this.latinName = latinName;
     }
+
+    @Override
+    public String toString() {
+        return "species [id=" + id + ", commonName=" + commonName + ", latinName=" + latinName + "]";
+    }
+
+    
 }

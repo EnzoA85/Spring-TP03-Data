@@ -10,21 +10,24 @@ import tp.bestioles.demo.bo.person;
 import tp.bestioles.demo.bo.species;
 import tp.bestioles.demo.dal.AnimalRepository;
 import tp.bestioles.demo.dal.PersonRepository;
+import tp.bestioles.demo.dal.SpeciesRepository;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
 
 	private AnimalRepository animalRepository;
 	private PersonRepository personRepository;
+	private SpeciesRepository speciesRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
 	@Autowired
-	public DemoApplication(PersonRepository personRepository, AnimalRepository animalRepository) {
+	public DemoApplication(PersonRepository personRepository, AnimalRepository animalRepository, SpeciesRepository speciesRepository) {
 		this.personRepository = personRepository;
 		this.animalRepository = animalRepository;
+		this.speciesRepository = speciesRepository;
 	}
 
 	@Override
@@ -47,6 +50,5 @@ public class DemoApplication implements CommandLineRunner{
 		person person2 = new person(99, "Personne", "Asupprimer");
 		personRepository.save(person2);
 		personRepository.delete(person2);
-
 	}
 }
