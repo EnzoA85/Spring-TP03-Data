@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.Transactional;
 
 import tp.bestioles.demo.bo.animal;
 import tp.bestioles.demo.bo.person;
 import tp.bestioles.demo.bo.species;
 import tp.bestioles.demo.dal.AnimalRepository;
 import tp.bestioles.demo.dal.PersonRepository;
+import tp.bestioles.demo.dal.PersonRepositoryCustom;
 import tp.bestioles.demo.dal.SpeciesRepository;
 
 @SpringBootApplication
@@ -67,14 +69,18 @@ public class DemoApplication implements CommandLineRunner{
 		// System.out.println(animalRepository.findByColorIn(colorsToSearch));
 
 		//TP 5
-		System.out.println(speciesRepository.findAllByCommonNameAscendingSql());
-		System.out.println(speciesRepository.findByCommonNameLike("Ch"));
+		// System.out.println(speciesRepository.findAllByCommonNameAscendingSql());
+		// System.out.println(speciesRepository.findByCommonNameLike("Ch"));
 
-		System.out.println(personRepository.findByAgeBetween(30, 70));
-		System.out.println(personRepository.findAllPersonPossedeAnimalDonne("Médor"));
+		// System.out.println(personRepository.findByAgeBetween(30, 70));
+		// System.out.println(personRepository.findAllPersonPossedeAnimalDonne("Médor"));
 
-		System.out.println(animalRepository.findBySex("M"));
-		System.out.println(animalRepository.findDoesAnimalBelongToAnyPerson("Médor"));
-		System.out.println(animalRepository.findDoesAnimalBelongToAnyPerson("Winnie"));
+		// System.out.println(animalRepository.findBySex("M"));
+		// System.out.println(animalRepository.findDoesAnimalBelongToAnyPerson("Médor"));
+		// System.out.println(animalRepository.findDoesAnimalBelongToAnyPerson("Winnie"));
+
+		//TP 6
+		//this.personRepository.deleteIfNoAnimal();
+		this.personRepository.newPersons(5);
 	}
 }
