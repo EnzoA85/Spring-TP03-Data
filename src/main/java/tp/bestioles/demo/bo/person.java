@@ -16,18 +16,18 @@ import jakarta.persistence.JoinColumn;
 
 @Entity
 @Table(name="person")
-public class person {
+    public class person {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Integer id;
-    @Column(name = "age", nullable = false)
-    private Integer age;
-    @Column(name = "firstname", length = 50, nullable = false)
-    private String firstName;
-    @Column(name = "lastname", length = 50, nullable = false)
-    private String lastName;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "ID")
+        private Integer id;
+        @Column(name = "age", nullable = false)
+        private Integer age;
+        @Column(name = "firstname", length = 50, nullable = false)
+        private String firstName;
+        @Column(name = "lastname", length = 50, nullable = false)
+        private String lastName;
 
     @ManyToMany
     @JoinTable(

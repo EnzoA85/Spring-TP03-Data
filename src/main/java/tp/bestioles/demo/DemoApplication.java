@@ -55,16 +55,26 @@ public class DemoApplication implements CommandLineRunner{
 		// personRepository.delete(person2);
 
 		//TP 4
+		// System.out.println(speciesRepository.findFirstByCommonName("Chat"));
+		// System.out.println(speciesRepository.findByLatinNameContainingIgnoreCase("Canis"));
 
-		System.out.println(speciesRepository.findFirstByCommonName("Chat"));
-		System.out.println(speciesRepository.findByLatinNameContainingIgnoreCase("Canis"));
+		// System.out.println(personRepository.findByLastNameOrFirstName("Lamarque", "Jean"));
+		// System.out.println(personRepository.findByLastNameOrFirstName("Loizeau", "Jean"));
+		// System.out.println(personRepository.findByAgeGreaterThanEqual(54));
 
-		System.out.println(personRepository.findByLastNameOrFirstName("Lamarque", "Jean"));
-		System.out.println(personRepository.findByLastNameOrFirstName("Loizeau", "Jean"));
-		System.out.println(personRepository.findByAgeGreaterThanEqual(54));
+		// System.out.println(animalRepository.findBySpecies(speciesRepository.findById(1).get()));
+		// List<String> colorsToSearch = Arrays.asList("Blanc", "Jaune", "Noir","Roux");
+		// System.out.println(animalRepository.findByColorIn(colorsToSearch));
 
-		System.out.println(animalRepository.findBySpecies(speciesRepository.findById(1).get()));
-		List<String> colorsToSearch = Arrays.asList("Blanc", "Jaune", "Noir","Roux");
-		System.out.println(animalRepository.findByColorIn(colorsToSearch));
+		//TP 5
+		System.out.println(speciesRepository.findAllByCommonNameAscendingSql());
+		System.out.println(speciesRepository.findByCommonNameLike("Ch"));
+
+		System.out.println(personRepository.findByAgeBetween(30, 70));
+		System.out.println(personRepository.findAllPersonPossedeAnimalDonne("Médor"));
+
+		System.out.println(animalRepository.findBySex("M"));
+		System.out.println(animalRepository.findDoesAnimalBelongToAnyPerson("Médor"));
+		System.out.println(animalRepository.findDoesAnimalBelongToAnyPerson("Winnie"));
 	}
 }
