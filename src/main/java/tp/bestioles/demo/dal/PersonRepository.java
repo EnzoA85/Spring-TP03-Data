@@ -20,4 +20,6 @@ public interface PersonRepository extends JpaRepository<person, Integer>, Person
 
     @Query("SELECT p FROM person p JOIN p.animalsPerson a WHERE a.name = :animalDonne")
     List<person> findAllPersonPossedeAnimalDonne(@Param("animalDonne") String nameAnimal);
+
+    
 }

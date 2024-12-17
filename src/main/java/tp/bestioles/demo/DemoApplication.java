@@ -81,6 +81,13 @@ public class DemoApplication implements CommandLineRunner{
 
 		//TP 6
 		//this.personRepository.deleteIfNoAnimal();
-		this.personRepository.newPersons(5);
+		//this.personRepository.newPersons(5);
+
+		//TP 7
+		//Quelle méthode du repository utiliser ?
+		//La méthode à utiliser dans le repository est findAll(Pageable pageable)
+		
+		//Comment écrire la requête Postman pour demander la page numéro 2 et de taille 2 ?
+		//La requête Postman pour demander la page numéro 2 avec une taille de 2 est : http://localhost:8080/api/persons/paginated?page=1&size=2.
 	}
 }
