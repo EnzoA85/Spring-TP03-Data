@@ -41,6 +41,14 @@ import jakarta.persistence.JoinColumn;
         animalsPerson=new HashSet<>();
     }
     
+    public Set<animal> getAnimalsPerson() {
+        return animalsPerson;
+    }
+
+    public void setAnimalsPerson(Set<animal> animalsPerson) {
+        this.animalsPerson = animalsPerson;
+    }
+
     public person() {
     }
 

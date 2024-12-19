@@ -3,6 +3,8 @@ package tp.bestioles.demo.bo;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,12 +35,21 @@ public class animal {
     private species species;
 
     @ManyToMany(mappedBy = "animalsPerson")
+    @JsonIgnore
     Set<person> animals;
 
     {
         animals=new HashSet<>();
     }
     
+    public Set<person> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Set<person> animals) {
+        this.animals = animals;
+    }
+
     public animal() {
     }
 

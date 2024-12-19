@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import tp.bestioles.demo.bo.person;
+import tp.bestioles.demo.dto.PersonDto;
 import tp.bestioles.demo.bll.personService;
 
 import java.util.List;
@@ -56,5 +57,20 @@ public class personController {
     @GetMapping("/paginated")
     public Page<person> getPageable(@PageableDefault(size=10) Pageable pageable){
         return personService.getPageable(pageable);
+    }
+
+    @GetMapping("/findPage")
+    public Page<person> findPage(@RequestParam(defaultValue = "0") int pageNumber,@RequestParam(defaultValue = "20") int pageSize) {
+        return personService.findPage(pageNumber, pageSize);
+    }
+
+    @GetMapping
+    public List<PersonDto> findAll() {
+        return personService.findAll();
+    }
+
+    @GetMapping("/paginatedDto")
+    public Page<PersonDto> findAll(Pageable pageable) {
+        return personService.findAll(pageable);
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.Transactional;
 
 import tp.bestioles.demo.bo.animal;
@@ -18,6 +19,7 @@ import tp.bestioles.demo.dal.PersonRepositoryCustom;
 import tp.bestioles.demo.dal.SpeciesRepository;
 
 @SpringBootApplication
+@EnableScheduling
 public class DemoApplication implements CommandLineRunner{
 
 	private AnimalRepository animalRepository;
@@ -89,5 +91,12 @@ public class DemoApplication implements CommandLineRunner{
 		
 		//Comment écrire la requête Postman pour demander la page numéro 2 et de taille 2 ?
 		//La requête Postman pour demander la page numéro 2 avec une taille de 2 est : http://localhost:8080/api/persons/paginated?page=1&size=2.
+	
+		//TP 8
+		//http://localhost:8080/api/animal/findPage?pageNumber=0&pageSize=2
+		//http://localhost:8080/api/person/findPage?pageNumber=0&pageSize=2
+		//http://localhost:8080/api/species/findPage?pageNumber=0&pageSize=2
+
 	}
 }
+

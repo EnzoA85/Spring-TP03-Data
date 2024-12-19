@@ -1,9 +1,11 @@
 package tp.bestioles.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import tp.bestioles.demo.bo.animal;
 import tp.bestioles.demo.bo.species;
 import tp.bestioles.demo.bll.speciesService;
 
@@ -48,5 +50,10 @@ public class speciesController {
         return speciesService.getSpeciesById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/findPage")
+    public Page<species> findPage(@RequestParam(defaultValue = "0") int pageNumber,@RequestParam(defaultValue = "20") int pageSize) {
+        return speciesService.findPage(pageNumber, pageSize);
     }
 }
