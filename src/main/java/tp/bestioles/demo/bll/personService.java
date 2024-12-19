@@ -38,7 +38,7 @@ public class personService {
             throw new EntityToUpdateHasNoIdException("L'entité à mettre à jour doit avoir un ID.");
         }
         if (!personRepository.existsById(id)) {
-            throw new EntityNotFoundException("Animal non trouvé avec l'ID: " + id);
+            throw new EntityNotFoundException("Personne non trouvé avec l'ID: " + id);
         }
         person existingPerson = personRepository.findById(id).orElseThrow();
         existingPerson.setAge(updatedPerson.getAge());
@@ -55,7 +55,7 @@ public class personService {
     // Méthode GetById
     public Optional<person> getPersonById(Integer id) {
         if (!personRepository.existsById(id)) {
-            throw new EntityNotFoundException("Animal non trouvé avec l'ID: " + id);
+            throw new EntityNotFoundException("Personne non trouvé avec l'ID: " + id);
         }
         return personRepository.findById(id);
     }
@@ -63,7 +63,7 @@ public class personService {
     // Méthode Delete
     public void deletePerson(Integer id) {
         if (!personRepository.existsById(id)) {
-            throw new EntityNotFoundException("Animal non trouvé avec l'ID: " + id);
+            throw new EntityNotFoundException("Personne non trouvé avec l'ID: " + id);
         }
         personRepository.deleteById(id);
     }

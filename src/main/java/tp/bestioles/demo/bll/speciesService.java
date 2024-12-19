@@ -35,7 +35,7 @@ public class speciesService {
             throw new EntityToUpdateHasNoIdException("L'entité à mettre à jour doit avoir un ID.");
         }
         if (!speciesRepository.existsById(id)) {
-            throw new EntityNotFoundException("Animal non trouvé avec l'ID: " + id);
+            throw new EntityNotFoundException("Specie non trouvé avec l'ID: " + id);
         }
         species existingSpecies = speciesRepository.findById(id).orElseThrow();
         existingSpecies.setCommonName(updatedSpecies.getCommonName());
@@ -51,7 +51,7 @@ public class speciesService {
     // Méthode GetById
     public Optional<species> getSpeciesById(Integer id) {
         if (!speciesRepository.existsById(id)) {
-            throw new EntityNotFoundException("Animal non trouvé avec l'ID: " + id);
+            throw new EntityNotFoundException("Specie non trouvé avec l'ID: " + id);
         }
         return speciesRepository.findById(id);
     }
@@ -59,7 +59,7 @@ public class speciesService {
     // Méthode Delete
     public void deleteSpecies(Integer id) {
         if (!speciesRepository.existsById(id)) {
-            throw new EntityNotFoundException("Animal non trouvé avec l'ID: " + id);
+            throw new EntityNotFoundException("Specie non trouvé avec l'ID: " + id);
         }
         speciesRepository.deleteById(id);
     }

@@ -19,7 +19,6 @@ import tp.bestioles.demo.dal.PersonRepositoryCustom;
 import tp.bestioles.demo.dal.SpeciesRepository;
 
 @SpringBootApplication
-@EnableScheduling
 public class DemoApplication implements CommandLineRunner{
 
 	private AnimalRepository animalRepository;
